@@ -2,34 +2,44 @@
 
 <h2>Timeline</h2>
 
+<%# <% if current_user.followings.include?(@user) %> %>
+<%# <% if current_user != @user %> %>
+
+  <%# <%= form_for @find_relationship, html:{method: :delete} do |f| %>
+  <%# <%= f.submit 'Unfollow' %> %>
+  <%# <% end %> %> %>
+
+  <%# <% else %> %>
+
+  <%# <%= form_for Relationship.new do |f| %> %>
+  <%# <%= hidden_field_tag :following_id, @user.id %> %>
+  <%# <%= submit 'Follow' %> %>
+
+  <%# <% end %> %>
+  <%# <% end %> %>
+
 <%= form_for Post.new do |f| %>
-<%= f.file_field :post_photo %>
-<%= f.text_field :caption, placeholder:'Caption' %>
-<%= f.submit 'Post' %>
+  <%= f.file_field :post_photo %>
+  <%= f.text_field :caption, placeholder:'Caption' %>
+  <%= f.submit 'Post' %>
 <% end %>
 
 <% @user.posts.each do |post| %>
-<%= image_tag post.post_photo %>
-<%= post.caption %>
-<%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure you want to delete?' } %>
+  <%= image_tag post.post_photo %>
+  <%= post.caption %>
+
+  <%= form_for ([post, @comment]) do |f| %>
+  <%= hidden_field_tag "user_id", @user.id %>
+    <%= f.text_field :content %>
+    <%= f.submit 'Comment'%>
+  <% end %>
+
+  <% post.comments.each do |comment| %>
+    <%= comment.user.username %>
+    <%= comment.content %>
+  <% end %>
+
+  <%= link_to 'Show', post_path(post) %>
+  <%= link_to 'Edit', edit_post_path(post) %>
+  <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure you want to delete?' } %>
 <% end %>
-
-<%# <%= @post.caption %> %>
-<%# <%= form_for (@post, @comment) do |f| %> %>
-<%# <%= f.text_field :content %> %>
-<%# <%= f.submit 'Comment'%> %>
-<%# <% end %> %>
-
-<%# <% if current_user.followings.include?(@user) %> %>
-<%# <% if current_user != @user %> %>
-  <%= form_for current_user.active_relationships.find_by(following_id: @user.id), html: {method: :delete} do |f| %>
-  <%= f.submit 'Unfollow' %>
-  <% end %>
-  <%# <% else %> %>
-
-  <%= form_for Relationship.new do |f| %>
-  <%= hidden_field_tag :following_id, @user.id %>
-  <%= submit 'Follow' %>
-  <% end %>
-  <%# <% end %> %>
-<%# <% end %> %>

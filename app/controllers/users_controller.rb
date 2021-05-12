@@ -23,6 +23,8 @@ end
 
 def show
   @user = User.find(params[:id])
+  @comment = Comment.new
+  @find_relationship = current_user.active_relationships.find_by(following_id: @user.id)
 end
 
 def destroy

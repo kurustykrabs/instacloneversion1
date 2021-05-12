@@ -1,0 +1,7 @@
+<% @user.posts.each do |post| %>
+<%= image_tag post.post_photo %>
+<%= post.caption %>
+<%= form_for (@post, @comment) do |f| %>
+<%= f.text_field :content %>
+<%= f.submit 'Comment'%>
+<% end %>
