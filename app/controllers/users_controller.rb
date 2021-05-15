@@ -31,6 +31,10 @@ end
 def destroy
 end
 
+def followings
+  @user = User.find(params[:id])
+end
+
   private
 
   def user_params
