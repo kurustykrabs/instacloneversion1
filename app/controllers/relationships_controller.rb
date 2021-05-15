@@ -1,8 +1,7 @@
 class RelationshipsController < ApplicationController
   def create
     user = User.find(params[:following_id])
-    current_user.active_relationship
-    create(following_id: user.id)
+    current_user.active_relationships.create(following_id: user.id)
     redirect_to user_path(user)
   end
 
