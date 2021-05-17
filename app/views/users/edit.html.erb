@@ -1,0 +1,8 @@
+<h1>Settings</h1>
+<p>Current username: <%= @user.username %></p>
+<p>Update your profile picture</p>
+<%= form_for @user do |f| %>
+<%= f.file_field :avatar %>
+<br>
+<%= f.submit 'Upload' %>
+<% end %>

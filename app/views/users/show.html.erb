@@ -1,6 +1,13 @@
 <h1>Welcome back, <%= current_user.username %>
-
+<br>
+<span class="badge badge-secondary">Thanks!</span>
   <%# <%= @user.username %>
+<br>
+<% if @user.avatar.attached? %>
+  <%= image_tag @user.avatar, style: 'width: 500px;' %>
+<% end %>
+<br>
+  <%= link_to 'Edit Profile', edit_user_path(@user) %>
 <br>
   <%= link_to "#{@user.followings.count} Followings", followings_user_path(@user) %>
   <%= link_to "#{@user.followers.count} Followers", followers_user_path(@user) %>

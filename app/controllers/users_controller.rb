@@ -14,11 +14,21 @@ class UsersController < ApplicationController
 end
 
 def edit
+  @user = User.find(params[:id])
 end
 
 def update
-  current_user.update(user_params)
-  redirect_to current_user
+  user = User.find(params[:id])
+  user.update(user_params)
+  if user.save
+    redirect_to user_path(user), notice:'Updated'
+  else
+    render :edit
+  end
+
+  # current_user.update(user_params)
+  # redirect_to current_user
+
 end
 
 def show
@@ -42,7 +52,7 @@ end
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :avatar)
   end
 
 
