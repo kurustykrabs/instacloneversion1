@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     # if change to destroy, will not work
     log_out
     redirect_to root_path, notice: 'You have logged out'
