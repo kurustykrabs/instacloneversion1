@@ -1,12 +1,55 @@
-<% if logged_in? %>
 
-  <%= link_to 'Home', current_user %>
-  <%= link_to 'Settings', edit_user_path(current_user) %>
-  <%= link_to 'Logout', logout_path, method: :delete %>
 
-  <% else %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <% if logged_in? %>
+      <%= link_to current_user, class: 'navbar-brand' do %>
+        <%= image_tag 'text 1.png', width: 100 %>
+      <% end %>
 
-  <%= link_to 'Login', login_path %>
-  <%= link_to 'Sign Up', new_user_path %>
+      <%# <% else %>
 
-<% end %>
+      <%# <%= link_to root_path, class: 'navbar-brand' do %>
+        <%# <%= image_tag 'text 1.png', width: 100 %>
+      <%# <% end %>
+
+    <% end %>
+  </div>
+  <div>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <% if logged_in? %>
+          <div class="btn-group">
+            <button>
+              <%= link_to 'Settings', edit_user_path(current_user) %>
+            </button>
+
+
+            <button>
+              <%= link_to 'Logout', logout_path, method: :delete %>
+            </button>
+
+         <!-- <a class="nav-link active" aria-current="page" href="#">Settings</a> -->
+            <% else %>
+
+            <!-- <div class="btn-group">
+            <button>
+              <%# <%= link_to 'Login', login_path %> %>
+            </button>
+
+            <button>
+              <%# <%= link_to 'Sign Up', new_user_path %> %>
+            </button> -->
+
+          </div>
+        <% end %>
+      </li>
+    </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search for users" aria-label="Search">
+          <div class="btn-group">
+            <button type="submit">Search</button>
+          </div>
+      </form>
+  </div>
+</nav>

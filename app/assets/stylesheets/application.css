@@ -13,3 +13,83 @@
  *= require_tree .
  *= require_self
  */
+ .btn-group button {
+   display: inline;
+   background-color: #FFFFFF; /* background */
+   border: 1px solid gray; /* border */
+   border-radius: 5px;
+   color: #202020; /* text */
+   position: relative;
+   padding: 5px 15px; /* Some padding */
+   cursor: pointer; /* Pointer/hand icon */
+   float: left; /* Float the buttons side by side */
+ }
+
+ .btn-group button:not(:last-child) {
+   border-right: none; /* Prevent double borders */
+ }
+
+ /* Clear floats (clearfix hack) */
+ .btn-group:after {
+   content: "";
+   clear: both;
+   display: table;
+ }
+
+ /* Add a background color on hover */
+ .btn-group button:hover {
+   background-color: #A0A0A0;
+ }
+
+.nav-item {
+  float: right;
+}
+
+.front {
+  /* padding: 10px 300px;
+  position: absolute;
+  display: flex;
+  justify-content: center; */
+  text-align: center;
+}
+.relative {
+  position:relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+#igLogo {
+  top: 180px;
+  left: 620px;
+}
+
+#iphone {
+  left: 370px;
+}
+.field {
+  padding: 2000px 200px 200px;
+}
+
+.password {
+  padding: 20px 500px;
+}
+
+.login {
+  padding: 5px 630px;
+}
+
+.signup {
+  padding: 10px 550px;
+}
+
+.front-2 {
+  margin-left: 10px;
+  padding: 200px;
+}

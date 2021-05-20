@@ -1,8 +1,35 @@
-<h1>Welcome to Instagram Clone Version 1</h1>
+<div class="relative">
 
-<%= link_to 'Sign Up', new_user_path %>
-<%= link_to 'Login', login_path %>
+  <%= image_tag 'front.png', width: 700, id: 'iphone', class: 'absolute' %>
+  <div class="text-center absolute" id='igLogo'>
 
+    <%= image_tag 'text 1.png', width: 200 %>
+  </div>
+</div>
 
+<div class="">
+</div>
 
+<%= form_with(url:login_path) do |f| %>
+
+<div class="field">
+<%= f.label :email %>
+<%= f.text_field :email %>
+</div>
+
+<div class="password">
+<%= f.label :password %>
+<%= f.password_field :password %>
+</div>
+
+<div class="login">
+<%# <%= link_to 'Login', login_path %>
+<%= f.submit 'Login' %>
+</div>
+
+<% end %>
+
+<div class="signup">
+<p>Don't have an account? <%= link_to 'Sign Up', new_user_path %></p>
+</div>
 <%# <%= link_to 'about', about_path %>

@@ -12,16 +12,6 @@
   </head>
 
   <body>
-    <!--Navigation Bar-->
-      <nav class="navbar navbar-light bg-light d-flex">
-        <div class="container">
-          <div class="logo">
-            <%= link_to current_user, class: 'navbar-brand' do %> 
-              <%= image_tag 'text 1.png', width: 100 %>
-            <% end %>
-          </div>
-        </div>
-      </nav>
     <%= render 'shared/header' %>
     <%= yield %>
   </body>

@@ -1,3 +1,4 @@
+<div class='user_signup_form'>
 <%= form_for User.new do |f| %>
 <%= f.label :username %>
 <%= f.text_field :username %>
@@ -13,4 +14,11 @@
 
 <%= f.submit 'Signup' %>
 
+</div>
+
+<div class="btn-group">
+  <button>
+  <%= link_to 'Back', root_path %>
+  </button>
+</div>
 <% end %>
