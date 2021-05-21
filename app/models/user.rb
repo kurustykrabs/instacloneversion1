@@ -8,4 +8,7 @@ class User < ApplicationRecord
 
   has_many :followings, through: :active_relationships
   has_many :followers, through: :passive_relationships
+
+  validates :username, :email, presence: true
+  validates :email, uniqueness: true
 end

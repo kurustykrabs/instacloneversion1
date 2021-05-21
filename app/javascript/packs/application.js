@@ -7,8 +7,9 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import "popper.js"
+// import "popper.js"
 // import "bootstrap/dist/js/bootstrap"
+
 import "bootstrap/dist/css/bootstrap"
   require("stylesheets/application.scss")
 import '../js/bootstrap_js_files.js'
